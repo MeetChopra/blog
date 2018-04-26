@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    
+    <h1>New post</h1>
+
+
+        <form method="post" class="post-form">{% csrf_token %}
+        	<p>
+        		<label>Title</label>
+        		<input type="text" name="title" value="{{ post_d.title }}" required="">
+        	</p>
+        	<p>
+        		<label>Post</label>
+        		<textarea name="text" required="">{{ post_d.text|linebreaksbr }}</textarea>
+        	</p>
+        	<button type="submit" class="save btn btn-default">Save</button>
+        </form>
+
+{% endblock %}
